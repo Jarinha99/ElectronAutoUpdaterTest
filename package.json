@@ -1,12 +1,26 @@
 {
   "name": "JarinhaElectron",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "release": "electron-builder --linux"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/Jarinha99/ElectronAutoUpdaterTest"
+  },
+  "build": {
+    "appId": "com.Jara.Electron",
+    "productName": "Jara",
+    "coryright": "Copyright Jarinha Gameplays",
+    "publish": [
+      "github"
+    ]
+  },
   "keywords": [
     "Electron",
     "quick",
@@ -14,6 +28,9 @@
     "tutorial",
     "demo"
   ],
+  "dependencies": {
+    "electron-updater": "^4.0.4"
+  },
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {

@@ -1,6 +1,21 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// No Node.js APIs are available in this process because
-// `nodeIntegration` is turned off. Use `preload.js` to
-// selectively enable features needed in the rendering
-// process.
+const select = selector => document.querySelector(selector)
+
+let container = select('#messages')
+let progressBar = select('#progressBar')
+let version = select('#version')
+
+window.ipcRenderer.on('message', (event, text) => {
+
+  let message = document.createElement('div')
+  message.innerHTML = text
+  container.appendChild(message)
+
+})
+
+window.ipcRenderer.on('version', (event, text) => {
+  version.innerText = text
+})
+
+window.ipcRenderer.on('download-progress', (event, text) => {
+  progressBar.style.width = `${text}%`
+})

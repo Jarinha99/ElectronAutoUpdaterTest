@@ -2,16 +2,27 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <h1>Teste</h1>
-
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+    <body>
+      <div class="w3-container">
+        <h1 style="color:blueviolet">Pingo App - New</h1>
+        <h3>Jarinha Electron</h3>
+    
+        <p>
+          Current version: <span id="version"></span>
+        </p>
+    
+        <div id="messages" style="color:cyan"></div>
+    
+        <div class="w3-light-grey">
+          <div class="w3-blue" style="height:24px;width:0%" id="progressBar"></div>
+        </div>
+      </div>
+      <script src="./renderer.js"></script>
+    </body>
   </body>
 </html>
