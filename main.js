@@ -16,6 +16,7 @@ function createWindow () {
   })
   
   mainWindow.loadFile('index.html')
+  mainWindow.webContents.openDevTools()
 
   return mainWindow
 }
@@ -26,6 +27,10 @@ app.on('ready', () => {
   createWindow();
 
   autoUpdater.checkForUpdatesAndNotify()
+  autoUpdater.autoDownload = true
+  autoUpdater.autoInstallOnAppQuit = true
+  autoUpdater.logger = require('electron-log')
+  autoUpdater.logger.transports.file.level = "debug"
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.webContents.send('version', app.getVersion())

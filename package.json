@@ -1,24 +1,26 @@
 {
   "name": "JarinhaElectron",
-  "version": "1.0.2",
+  "version": "1.1.3",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "release": "electron-builder --linux"
+    "release": "electron-builder --linux",
+    "publish": "electron-builder --publish always"
   },
   "repository": {
     "type": "git",
-    "url":"https://github.com/Jarinha99/ElectronAutoUpdaterTest"
+    "url": "https://github.com/Jarinha99/ElectronAutoUpdaterTest"
   },
   "build": {
-    "appId": "com.Jara.Electron",
-    "productName": "Jara",
-    "coryright": "Copyright Jarinha Gameplays",
     "publish": [
-      "github"
+      {
+        "provider": "github",
+        "token": "ac24433525d2f841af8e86daf053ba3d483d68ab",
+        "releaseType": "release"
+      }
     ]
   },
   "keywords": [
@@ -29,11 +31,13 @@
     "demo"
   ],
   "dependencies": {
-    "electron-updater": "^4.0.4"
+    "electron-log": "^4.1.0",
+    "electron-updater": "^4.2.5"
   },
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^8.0.3"
+    "electron": "^8.0.3",
+    "electron-builder": "^22.4.1"
   }
 }
