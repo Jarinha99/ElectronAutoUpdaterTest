@@ -8,7 +8,7 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "release": "electron-builder --linux",
-    "publish": "electron-builder --publish always"
+    "publish": "set AWS_ACCESS_KEY_ID=AKIAYIYORZBCCYOGO3Z6 && set AWS_SECRET_ACCESS_KEY=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 && electron-builder --publish always"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,8 @@
   "build": {
     "publish": [
       {
-        "provider": "github",
-        "token": "ac24433525d2f841af8e86daf053ba3d483d68ab",
-        "releaseType": "release"
+        "provider": "s3",
+        "bucket": "jarinhaelectronautoupdater"
       }
     ]
   },
@@ -31,8 +30,10 @@
     "demo"
   ],
   "dependencies": {
+    "aws-sdk": "^2.640.0",
     "electron-log": "^4.1.0",
-    "electron-updater": "^4.2.5"
+    "electron-updater": "^4.2.5",
+    "uuid": "^7.0.2"
   },
   "author": "GitHub",
   "license": "CC0-1.0",
